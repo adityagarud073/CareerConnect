@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartRecruitment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72e0680fd991e4913cc31d58f6251fd50d500039")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b850cdc48b862fc16d1e8388c4cf219d4379d49")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartRecruitment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartRecruitment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
