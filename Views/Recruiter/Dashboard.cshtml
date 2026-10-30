@@ -1,0 +1,200 @@
+@{
+    ViewData["Title"] = "Recruiter Dashboard";
+
+    var userName =
+        Context.Session.GetString("UserName")
+        ?? "Recruiter";
+}
+
+<div class="container py-4">
+
+    <div class="row g-4">
+
+        <!-- Sidebar -->
+
+        <div class="col-lg-3">
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-body text-center py-5">
+
+                    <div class="bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                         style="width:85px;height:85px;font-size:34px;font-weight:bold;">
+
+                        @userName.Substring(0, 1).ToUpper()
+
+                    </div>
+
+                    <h4 class="fw-bold mb-3">
+                        @userName
+                    </h4>
+
+                    <span class="badge bg-primary px-3 py-2">
+                        Recruiter Portal
+                    </span>
+
+                </div>
+
+                <div class="card-body pt-0 pb-5 mb-5">
+
+                    <div class="d-grid gap-3">
+
+                        <a asp-controller="Job"
+                           asp-action="AddJob"
+                           class="btn btn-light border text-start py-4 text-center text-bold fw-bold">
+
+                            Post New Job
+
+                        </a>
+
+                        <a asp-controller="Job"
+                           asp-action="ManageJobs"
+                           class="btn btn-light border text-start py-4 text-center text-bold fw-bold">
+
+                            Manage Posted Jobs
+
+                        </a>
+
+                        <a asp-controller="Job"
+                           asp-action="ViewApplicants"
+                           class="btn btn-light border text-start py-4 text-center text-bold fw-bold">
+
+                            View Applicants
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="col-lg-9">
+
+            <!-- Welcome Banner -->
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                <div class="card-body bg-primary text-white rounded-4 p-5">
+
+                    <h2 class="fw-bold mb-3">
+
+                        Welcome Back, @userName 👋
+
+                    </h2>
+
+                    <p class="mb-0 fs-5">
+
+                        Manage your posted jobs, review applicants and streamline your hiring process from a single dashboard.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Recruitment Overview -->
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-header bg-white py-4">
+
+                    <h4 class="fw-bold mb-0">
+
+                        Recruitment Overview
+
+                    </h4>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Post Jobs
+                                </h5>
+
+                                <p class="text-muted mb-0">
+
+                                    Create and publish new job opportunities to connect with qualified candidates.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Manage Jobs
+                                </h5>
+
+                                <p class="text-muted mb-0">
+
+                                    Update, edit or remove existing job postings whenever required.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Applicant Tracking
+                                </h5>
+
+                                <p class="text-muted mb-0">
+
+                                    Review candidate applications and track hiring progress efficiently.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Resume Access
+                                </h5>
+
+                                <p class="text-muted mb-0">
+
+                                    View candidate resumes and contact details for recruitment decisions.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

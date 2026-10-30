@@ -1,0 +1,192 @@
+@{
+    ViewData["Title"] = "Candidate Dashboard";
+
+    var userName =
+        Context.Session.GetString("UserName")
+        ?? "Candidate";
+}
+
+<div class="container py-4">
+
+    <div class="row g-4">
+
+        <!-- Sidebar -->
+
+        <div class="col-lg-3">
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-body text-center py-5">
+
+                    <div class="bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                         style="width:85px;height:85px;font-size:34px;font-weight:bold;">
+
+                        @userName.Substring(0, 1).ToUpper()
+
+                    </div>
+
+                    <h4 class="fw-bold mb-3">
+                        @userName
+                    </h4>
+
+                    <span class="badge bg-primary px-3 py-2">
+                        Candidate Portal
+                    </span>
+
+                </div>
+
+                <div class="card-body pt-0 pb-5 mb-5">
+
+                    <div class="d-grid gap-3">
+
+                        <a asp-controller="Job"
+                           asp-action="ViewJobs"
+                           class="btn btn-light border text-start py-4 text-center text-bold fw-bold">
+
+                            Available Jobs
+
+                        </a>
+
+                        <a asp-controller="Candidate"
+                           asp-action="UploadResume"
+                           class="btn btn-light border text-start py-4 text-center text-bold fw-bold">
+
+                            Upload Resume
+
+                        </a>
+
+                        <a asp-controller="Candidate"
+                           asp-action="AppliedJobs"
+                           class="btn btn-light border text-start py-4 text-center text-bold fw-bold">
+
+                            Applied Jobs
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Main Content -->
+
+        <div class="col-lg-9">
+
+            <!-- Welcome Banner -->
+
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                <div class="card-body bg-primary text-white rounded-4 p-5">
+
+                    <h2 class="fw-bold mb-3">
+
+                        Welcome Back, @userName 👋
+
+                    </h2>
+
+                    <p class="mb-0 fs-5">
+
+                        Explore opportunities, manage your resume and track your career journey from one place.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Career Overview -->
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-header bg-white py-4">
+
+                    <h4 class="fw-bold mb-0">
+
+                        Career Overview
+
+                    </h4>
+
+                </div>
+
+                <div class="card-body p-4">
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Job Search
+                                </h5>
+
+                                <p class="text-muted mb-0">
+                                    Browse available job opportunities and find roles that match your skills and interests.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Resume Management
+                                </h5>
+
+                                <p class="text-muted mb-0">
+                                    Upload and update your latest resume for recruiters to review.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Application Tracking
+                                </h5>
+
+                                <p class="text-muted mb-0">
+                                    Monitor and manage all jobs you have applied for.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="bg-light rounded-4 p-4 h-100">
+
+                                <h5 class="fw-bold mb-3">
+                                    Career Growth
+                                </h5>
+
+                                <p class="text-muted mb-0">
+                                    Discover opportunities that can help you build and grow your professional career.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

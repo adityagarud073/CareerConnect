@@ -1,0 +1,186 @@
+@model List<SmartRecruitment.Models.Job>
+
+@{
+    ViewData["Title"] = "Available Jobs";
+}
+
+<div class="container mt-4">
+
+    <!-- Header -->
+
+    <div class="bg-primary text-white p-4 rounded shadow mb-4">
+
+        <h2 class="mb-1">Available Jobs</h2>
+
+        <p class="mb-0">
+            Explore and apply for available job opportunities.
+        </p>
+
+    </div>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- Search Bar -->
+
+    <form method="get" class="mb-4">
+        <div class="input-group">
+            <!-- Context.Request.Query['location'] kela aahe jyamule typed text tithech rahil -->
+            <input type="text" name="location" class="form-control" placeholder="Search Jobs By Location"
+                   value="@Context.Request.Query["location"]">
+
+            <button type="submit" class="btn btn-primary">
+                Search
+            </button>
+        </div>
+    </form>
+
+    @if (Model == null || !Model.Any())
+    {
+        @if (!string.IsNullOrEmpty(Context.Request.Query["location"]))
+        {
+            <div class="alert alert-warning text-center">
+                No jobs found for "@Context.Request.Query["location"]"
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning text-center">
+                No Jobs Posted
+            </div>
+        }
+    }
+
+    <!-- Job Cards -->
+
+    <div class="row">
+
+        @foreach (var job in Model)
+        {
+            <div class="col-md-6 mb-4">
+
+                <div class="card shadow border-0 h-100">
+
+                    <div class="card-body">
+
+                        <h4 class="text-primary">
+                            @job.Title
+                        </h4>
+
+                        <p>
+                            <strong>Company:</strong>
+                            @job.CompanyName
+                        </p>
+
+                        <hr />
+
+                        <p>
+                            <strong>Skills:</strong>
+                            @job.RequiredSkills
+                        </p>
+
+                        <p>
+                            <strong>Experience:</strong>
+                            @job.Experience
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong>
+                            @job.Location
+                        </p>
+
+                        <div class="text-end">
+
+                            <button type="button" class="btn btn-info me-2" data-bs-toggle="modal"
+                                    data-bs-target="#jobModal_@job.Id">
+                                See More
+                            </button>
+
+                            <a asp-controller="Job" asp-action="ApplyJob" asp-route-id="@job.Id" class="btn btn-success">
+                                Apply Now
+                            </a>
+
+                        </div>
+
+                        <!-- Job Details Modal -->
+                        <div class="modal fade" id="jobModal_@job.Id" tabindex="-1" aria-hidden="true">
+
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+
+                                <div class="modal-content">
+
+                                    <div class="modal-header bg-primary text-white">
+                                        <h5 class="modal-title">
+                                            @job.Title
+                                        </h5>
+
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal">
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+
+                                        <p>
+                                            <strong>Company:</strong>
+                                            @job.CompanyName
+                                        </p>
+
+                                        <p>
+                                            <strong>Skills:</strong>
+                                            @job.RequiredSkills
+                                        </p>
+
+                                        <p>
+                                            <strong>Experience:</strong>
+                                            @job.Experience
+                                        </p>
+
+                                        <p>
+                                            <strong>Location:</strong>
+                                            @job.Location
+                                        </p>
+
+                                        <hr />
+
+                                        <h6 class="text-primary">Job Description</h6>
+
+                                        <p>
+                                            @job.Description
+                                        </p>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+
+                                        <a asp-controller="Job" asp-action="ApplyJob" asp-route-id="@job.Id"
+                                           class="btn btn-success">
+                                            Apply Now
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+

@@ -1,0 +1,44 @@
+@model SmartRecruitment.Models.Job
+
+<div class="container mt-4">
+
+    <h2>Job Details</h2>
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <h4>@Model.Title</h4>
+
+            <hr />
+
+            <p>
+                <strong>Company Name :</strong>
+                @Model.CompanyName
+            </p>
+
+            <p>
+                <strong>Description :</strong>
+                @Model.Description
+            </p>
+
+            <p>
+                <strong>Required Skills :</strong>
+                @Model.RequiredSkills
+            </p>
+
+            <p>
+                <strong>Experience :</strong>
+                @Model.Experience
+            </p>
+
+            <p>
+                <strong>Location :</strong>
+                @Model.Location
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

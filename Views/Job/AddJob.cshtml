@@ -1,0 +1,121 @@
+@model SmartRecruitment.Models.Job
+
+@{
+    ViewData["Title"] = "Add Job";
+}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow border-0">
+
+                <div class="card-header bg-primary text-white">
+
+                    <h3 class="mb-0">
+                        Add New Job
+                    </h3>
+
+                </div>
+
+                <div class="card-body">
+
+                 
+                    @if (TempData["JobSuccess"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["JobSuccess"]
+                        </div>
+                    }
+
+                    <form method="post">
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Job Title
+                            </label>
+
+                            <input asp-for="Title" class="form-control" placeholder="Enter Job Title" required />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Company Name
+                            </label>
+
+                            <input asp-for="CompanyName" class="form-control" placeholder="Enter Company Name" />
+
+                        </div>
+
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Job Description
+                            </label>
+
+                            <textarea asp-for="Description" class="form-control" rows="4"
+                                      placeholder="Enter Job Description" required></textarea>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Required Skills
+                            </label>
+
+                            <input asp-for="RequiredSkills" class="form-control"
+                                   placeholder="ASP.NET Core, MySQL, Bootstrap" required />
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label fw-bold">
+                                Experience
+                            </label>
+
+                            <input asp-for="Experience" class="form-control" placeholder="0-2 Years" required />
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label fw-bold">
+                                Location
+                            </label>
+
+                            <input asp-for="Location" class="form-control" placeholder="Mumbai" required />
+
+                        </div>
+
+                        <div class="text-center">
+
+                            <button type="submit" class="btn btn-primary px-4">
+                                Save Job
+                            </button>
+
+                            <a asp-controller="Recruiter" asp-action="Dashboard" class="btn btn-secondary px-4">
+                                Back
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
